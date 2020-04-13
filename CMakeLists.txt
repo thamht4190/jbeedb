@@ -15,3 +15,10 @@ set(SRC
 )
 
 add_library(jbeedb STATIC ${SRC})
+
+# test
+add_subdirectory(vendors/googletest/googletest)
+
+add_executable(StoreTest test/StoreTest.cpp)
+target_include_directories(StoreTest PRIVATE vendors/googletest/googletest/include)
+target_link_libraries(StoreTest PRIVATE jbeedb gtest)
